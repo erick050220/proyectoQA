@@ -20,38 +20,40 @@
       <div class="card card-body">
         <form action="save_task.php" method="POST">
           <div class="form-group">
-            <input type="text" autofocus name="title" class="form-control" placeholder="DPI"  required>
+            <input type="number" autofocus name="dpi" class="form-control" placeholder="DPI"  required>
           </div>
           <div class="form-group">
-            <input name="description" rows="2" class="form-control" placeholder="Nombres" required>
+            <input  type="text" name="nombres" rows="2" class="form-control" placeholder="Nombres" required>
           </div>
           <div class="form-group">
-            <input name="temperatura" rows="2" class="form-control" placeholder="temperatura" required>
+            <input type="number" name="temperatura" rows="3" class="form-control" placeholder="temperatura" required>
           </div>
           <input type="submit" name="save_task" class="btn btn-success btn-block" value="ok">
         </form>
       </div>
     </div>
     <div class="col-md-8">
-      <table class="table table-bordered">
+      <table class="table thead-dark">
         <thead>
           <tr>
             <th>DPI</th>
             <th>Nombres</th>
-            <th>Created At</th>
+            <th>temperatura</th>
+            <th>Fecha de Creacion</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
 
           <?php
-          $query = "SELECT * FROM task";
+          $query = "SELECT * FROM datos_del_usuario";
           $result_tasks = mysqli_query($conexion, $query);    
 
           while($row = mysqli_fetch_assoc($result_tasks)) { ?>
           <tr>
-            <td><?php echo $row['title']; ?></td>
-            <td><?php echo $row['descriptio']; ?></td>
+            <td><?php echo $row['dpi']; ?></td>
+            <td><?php echo $row['nombres']; ?></td>
+            <td><?php echo $row['temperatura']; ?></td>
             <td><?php echo $row['created_at']; ?></td>
             <td>
               <a href="edit.php?id=<?php echo $row['id']?>" class="btn btn-secondary">
