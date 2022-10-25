@@ -1,12 +1,12 @@
-CREATE DATABASE php_mysql_crud;
 
-use php_mysql_crud;
+use phpcrud;
 
-CREATE TABLE task(
-  id INT(11) PRIMARY KEY AUTO_INCREMENT,
-  title VARCHAR(255) NOT NULL,
-  description TEXT,
+CREATE TABLE Datos_del_Usuario(
+  id INT(4) PRIMARY KEY AUTO_INCREMENT,
+  dpi VARCHAR(14) NOT NULL,
+  nombres varchar (50),
+  temperatura int (2),
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-DESCRIBE task;
+-- DESCRIBE task;
